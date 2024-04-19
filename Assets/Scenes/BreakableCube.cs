@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class BreakableSquare : MonoBehaviour
+public class BreakableCube : MonoBehaviour
 {
-    public int health = 50;
+    public float health = 50f;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
@@ -15,6 +15,7 @@ public class BreakableSquare : MonoBehaviour
 
     void DestroySquare()
     {
+        // Encuentra al jugador y aumenta su salud
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {

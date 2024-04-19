@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Attack();
+            Attacsk();
         }
     }
 
@@ -48,6 +49,19 @@ public class PlayerController : MonoBehaviour
             if (distanceToEnemy <= attackDistance)
             {
                 enemy.TakeDamage(attackDamage);
+            }
+        }
+    }
+
+    void Attacsk()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, attackDistance);
+        foreach (var hitCollider in hitColliders)
+        {
+
+            if (hitCollider.gameObject.CompareTag("Breakable"))
+            {
+                hitCollider.GetComponent<BreakableCube>().TakeDamage(attackDamage);
             }
         }
     }

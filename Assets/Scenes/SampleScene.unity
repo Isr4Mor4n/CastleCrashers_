@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 513257577}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
   maxHealth: 100
   healthSlider: {fileID: 1062405863}
   attackDistance: 1.5
-  attackDamage: 25
+  attackDamage: 10
 --- !u!212 &639014656
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -846,7 +846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   attackDistance: 1.5
-  attackDamage: 5
+  attackDamage: 10
   maxHealth: 100
   healthSlider: {fileID: 683701263}
 --- !u!212 &683039991
@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   attackDistance: 1.5
-  attackDamage: 5
+  attackDamage: 10
   maxHealth: 100
   healthSlider: {fileID: 683701263}
 --- !u!212 &728659413
@@ -1283,7 +1283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   attackDistance: 1.5
-  attackDamage: 5
+  attackDamage: 10
   maxHealth: 100
   healthSlider: {fileID: 683701263}
 --- !u!212 &901952736
@@ -1909,7 +1909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   attackDistance: 1.5
-  attackDamage: 5
+  attackDamage: 10
   maxHealth: 100
   healthSlider: {fileID: 683701263}
 --- !u!50 &2078138441
