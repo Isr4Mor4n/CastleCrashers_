@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     public float attackDistance = 1.5f; // Distancia de ataque del jugador
     public float attackDamage = 10f; // Daño del ataque del jugador
 
+    private Rigidbody2D rb;
+
     void Start()
     {
         currentHealth = maxHealth; // Inicializar la vida actual con la vida máxima
         UpdateHealthUI(); // Actualizar el Slider de la vida al inicio
+        rb = GetComponent<Rigidbody2D>(); // Obtener el Rigidbody2D
     }
 
     void Update()
@@ -24,10 +27,10 @@ public class PlayerController : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // Mover el jugador
-        transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime);
+        rb.velocity = new Vector2(horizontalInput, verticalInput) * speed;
 
-        // Atacar si se presiona la tecla de espacio
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Atacar si se presiona el botón izquierdo del ratón
+        if (Input.GetMouseButtonDown(0))
         {
             Attack();
             Attacsk();
@@ -58,7 +61,6 @@ public class PlayerController : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, attackDistance);
         foreach (var hitCollider in hitColliders)
         {
-
             if (hitCollider.gameObject.CompareTag("Breakable"))
             {
                 hitCollider.GetComponent<BreakableCube>().TakeDamage(attackDamage);
@@ -106,5 +108,13 @@ public class PlayerController : MonoBehaviour
 
         // Actualiza la interfaz de usuario de la salud
         UpdateHealthUI();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Boundary"))
+        {
+            // Puedes manejar la colisión con los límites aquí si es necesario
+        }
     }
 }
